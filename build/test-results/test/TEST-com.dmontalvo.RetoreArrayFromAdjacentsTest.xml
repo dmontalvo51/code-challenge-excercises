@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dmontalvo.RetoreArrayFromAdjacentsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-12-02T21:44:25" hostname="dmontalvo-Latitude" time="0.046">
-  <properties/>
-  <testcase name="restoreArray_reconstructsSequenceFromPairs()" classname="com.dmontalvo.RetoreArrayFromAdjacentsTest" time="0.046"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
