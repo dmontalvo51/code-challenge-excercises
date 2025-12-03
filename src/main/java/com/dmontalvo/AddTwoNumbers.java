@@ -6,46 +6,29 @@ import java.util.List;
 public class AddTwoNumbers {
 
      public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int rest=0;
-        int sum=0;
-        ListNode result=new ListNode();
-        ListNode header=result;
-        do{
-            sum=(int)(rest+l1.val+l2.val)%10;
-            rest=(rest+l1.val+l2.val)/10;
-            result.val=sum;
-            if(l1.next!=null || l2.next!=null){
-                result.next=new ListNode();
-                result=result.next;
-            }
-            l1=l1.next;
-            l2=l2.next;
-        }while(l1!=null && l2!=null);
+       ListNode result=new ListNode();
+       ListNode current=result;
+       int carry=0;
 
-        while(l1!=null){
-            sum=(int)(rest+l1.val)%10;
-            rest=(rest+l1.val)/10;
-            result.val=sum;
-            if(l1.next!=null){
-                result.next=new ListNode();
-                result=result.next;
-            }
-            l1=l1.next;
-        }
-        while(l2!=null){
-            sum=(int)(rest+l2.val)%10;
-            rest=(rest+l2.val)/10;
-            result.val=sum;
-            if(l2.next!=null){
-                result.next=new ListNode();
-                result=result.next;
-            }
-            l2=l2.next;
-        }
-        if(rest>0){
-            result.next=new ListNode(rest);
-        }
-        return header;
+       while(l1!=null || l2!=null || carry>0){
+         int sum=carry;
+         if(l1!=null){
+           sum+=l1.val;
+           l1=l1.next;
+         }
+         if(l2!=null){
+           sum+=l2.val;
+           l2=l2.next;
+         }
+         carry=sum/10;
+         current.val=sum%10;
+
+         if(l1!=null || l2!=null || carry>0){
+           current.next=new ListNode();
+           current=current.next;
+         }
+       }
+       return result;
     }
 
 }
